@@ -1,14 +1,11 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
+import pytest
 
-driver = webdriver.Firefox()
-driver.get('https://www.saucedemo.com/')
+from pageObjects.standardUserLogin import StandardUserLogin
 
-driver.find_element(By.ID, 'user-name').send_keys('standard_user')
-driver.find_element(By.ID, 'password').send_keys('secret_sauce')
-driver.find_element(By.ID, 'login-button').click()
+def test_userLogin(browserInstance):
+    driver = browserInstance
+    userLogin = StandardUserLogin(driver)
+    print(userLogin.getTitle())
+    userLogin.login('standard_user', 'secret_sauce')
 
 
-#verify that we logged in and header label appears
-header_label = driver.find_element(By.CLASS_NAME, 'header_label')
-assert 'Swag Labs' in header_label.text
