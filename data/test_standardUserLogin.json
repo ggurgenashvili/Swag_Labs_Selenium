@@ -2,7 +2,10 @@
   "data": [
     {
       "username" : "standard_user",
-      "password" : "secret_sauce"
+      "password" : "secret_sauce",
+      "firstName": "test",
+      "lastName" : "test2",
+      "zipCode": 123
     }
   ]
 }
